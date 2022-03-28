@@ -195,8 +195,24 @@ def sortBooksByYear(ctrlr, year, rank):
     # TODO completar cambios para el laboratorio 7
     # respuesta por defecto
     books = None
+    tracemalloc.star()
+
+    start_time = getTime()
+    start_memory = getMemory()
+    
     books = model.sortBooksByYear(ctrlr['model'], year, rank)
-    return books
+
+    stop_memory = getMemory()
+    stop_time = getTime()
+
+    tracemalloc.stop()
+
+    delta_time = deltaTime(stop_time, start_time)
+    delta_memory = deltaMemory(stop_memory, start_memory)
+
+
+
+    return books, delta_time, delta_memory
 
 
 # Funciones para medir tiempos de ejecucion

@@ -189,7 +189,10 @@ while True:
         rank = int(rank)
         answer = controller.sortBooksByYear(ctrlr, number, rank)
         # TODO completar cambios para el laboratorio 7
-        printBestBooks(answer)
+        printBestBooks(answer[0])
+        print("Tiempo [ms]: ", f"{answer[1]:.3f}", "||",
+              "Memoria [kB]: ", f"{answer[2]:.3f}")
+
 
     elif int(inputs[0]) == 0:
         break
